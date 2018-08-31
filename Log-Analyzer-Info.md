@@ -13,6 +13,18 @@
 
 5. `[24/Aug/2018:00:00:01 +0900]`
 : TIME  
+[10/Oct/2000:13:55:36 -0700] (%t)
+서버가 요청처리를 마친 시간. 형식은:
+[day/month/year:hour:minute:second zone]
+day = 숫자 2개
+month = 숫자 3개
+year = 숫자 4개
+hour = 숫자 2개
+minute = 숫자 2개
+second = 숫자 2개
+zone = (`+' | `-') 숫자 4개
+
+로그 형식문자열에 %{format}t를 사용하여 다른 형식으로 시간을 출력할 수 있다. format은 C 표준 라이브러리의 strftime(3)과 같다.
 
 6.`GET`  
 : REST method
