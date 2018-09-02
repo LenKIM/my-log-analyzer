@@ -43,3 +43,14 @@ http://svn.tools.ietf.org/svn/wg/httpbis/specs/rfc7231.html#rfc.section.5.5.3
 
 Detailed Information.
 
+
+
+## 어떻게 User-Agnet를 판별할 수 있는가?
+
+http://charls.tistory.com/entry/useragent-NginX-Lua-Script를-이용한-OS-Browser-확인
+
+http://detectmobilebrowsers.com/mobile
+
+https://www.popit.kr/내-서버에는-누가-들어오는걸까-실시간-user-agent-분석기/
+
+https://blog.outsider.ne.kr/274
