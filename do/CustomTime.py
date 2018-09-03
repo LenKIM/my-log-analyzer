@@ -1,66 +1,35 @@
 # -*- coding: utf-8 -*-
+# !/usr/bin/env python3
+
 import datetime
-from enum import Enum
+from datetime import datetime
 
-import numpy as np
-
-
-class Minutes(Enum):
-    half = 30
-    time_sharp = 0
+import pytz
 
 
+def datetime_range(start, end, delta_pass):
+    current = start
+    while current <= end:
+        yield current
+        current += delta_pass
+
+
+# 24/Aug/2018:00:00:04 +0900
+# 두가지 시간 측정 가능
+# interval 은 1시간, 2시간, 또는 몃시부터 몃시까지로 가능
 class CustomTime:
-    # 24/Aug/2018:00:00:04 +0900
-    # 두가지 시간 측정 가능
-    def __init__(self, start_time: str, end_time: str, interval_time=None) -> None:
-        super().__init__()
-        self.start_time = datetime.datetime.strptime(start_time, '%d/%b/%Y:%H:%M:%S')
-        self.end_time = datetime.datetime.strptime(end_time, '%d/%b/%Y:%H:%M:%S')
-        if interval_time is not None:
-            if interval_time is 1:  # 60분
-                start_day = self.start_time.day
-                end_day = self.end_time.day
+    def __init__(self, start_time: str, end_time: str, selected_hour_or_minutes=None, interval_time=None) -> None:
+        localtz = pytz.timezone('Asia/Seoul')
 
-                start_hour = self.start_time.hour
-                end_hour = self.end_time.hour
-                self.time_range = np.arange(start_hour, end_hour, 1)
-
-            elif interval_time is 30:  # 30분
-                times = []
-
-                start_year = self.start_time.year
-                end_year = self.end_time.year
-                years = np.arange(start_year, end_year, end_year - start_year + 1)
-
-                start_month = self.start_time.month
-                end_month = self.end_time.month
-                sum_month = start_month + end_month
-                months = []
-                if sum_month > 12:  # 12월 까지니까.
-                    months = range(start_month, 13)
-
-                for a in range(1, sum_month - end_month + 1):
-                    months.append(a)
-
-                start_hour = self.start_time.hour
-                end_hour = self.end_time.hour
-
-                hour_list = np.arange(start_hour, end_hour, end_hour - start_hour + 1)
-
-                start_minute = self.start_time.minute
-                end_minute = self.end_time.minute
-
-                minutes = [0, 30]
-                for year in years:
-                    for month in months:
-                        for hour in hour_list:
-                            for minute in minutes:
-                                temp_date = datetime.datetime(year=year, month=month, hour=hour, minute=minute)
-                                times.append(temp_date)
-
-                if start_minute > 30:
-                    times = times[1:]
-
-                if end_minute < 30:
-                    self.times = times[:-1]
+        self.start_time = localtz.localize(datetime.datetime.strptime(start_time, '%d/%b/%Y:%H:%M:%S'))
+        self.end_time = localtz.localize(datetime.datetime.strptime(end_time, '%d/%b/%Y:%H:%M:%S'))
+        try:
+            if selected_hour_or_minutes is not None and selected_hour_or_minutes is "H":
+                self.range_times = [dt.strftime('%d/%b/%Y:%H:%M:%S %z') for dt in
+                                    datetime_range(start_time, end_time, datetime.timedelta(hours=interval_time))]
+            elif selected_hour_or_minutes is not None and selected_hour_or_minutes is "M":
+                self.range_times = [dt.strftime('%d/%b/%Y:%H:%M:%S %z') for dt in
+                                    datetime_range(start_time, end_time, datetime.timedelta(minutes=interval_time))]
+        except AssertionError:
+            print("잘못된 날짜를 기입하셨습니다. 다시한번 확인해주시기 바랍니다.")
+            return
