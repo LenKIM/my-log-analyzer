@@ -200,3 +200,12 @@ pip-selfcheck.json
 
 
 # End of https://www.gitignore.io/api/python
+/logfiles/20180824/ap3.daouoffice.com_access_2018-08-24.txt
+/logfiles/20180824/ap2.daouoffice.com_access_2018-08-24.txt
+/logfiles/20180824/ap1.daouoffice.com_access_2018-08-24.txt
+/logfiles/20180827/ap2.daouoffice.com_access_2018-08-27.txt
+/logfiles/20180827/ap3.daouoffice.com_access_2018-08-27.txt
+/logfiles/20180827/ap1.daouoffice.com_access_2018-08-27.txt
+/logfiles/20180828/ap3.daouoffice.com_access_2018-08-28.txt
+/logfiles/20180828/ap1.daouoffice.com_access_2018-08-28.txt
+/logfiles/20180828/ap2.daouoffice.com_access_2018-08-28.txt
