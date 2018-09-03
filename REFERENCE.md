@@ -54,3 +54,11 @@ http://detectmobilebrowsers.com/mobile
 https://www.popit.kr/내-서버에는-누가-들어오는걸까-실시간-user-agent-분석기/
 
 https://blog.outsider.ne.kr/274
+
+
+
+## 파이썬 멀티쓰레딩
+
+BASIC https://mellowd.co.uk/ccie/?p=5807
+
+https://www.techbeamers.com/python-multithreading-concepts/
