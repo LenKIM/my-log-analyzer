@@ -20,7 +20,6 @@
 - http-nio-80-exec-415 - - [24/Aug/2018:00:00:12 +0900] GET /favicon.ico HTTP/1.0 200 - "-" "-" "-" 0.001
 220.85.162.130 http-nio-80-exec-383 - eunji_kim@mofac.com [24/Aug/2018:00:00:03 +0900] GET /api/mail/accountstatus HTTP/1.1 200 118 "https://mofac.daouoffice.com/app/mail" "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" "-" 0.011
 - http-nio-80-exec-706 - - [24/Aug/2018:00:00:03 +0900] GET /favicon.ico HTTP/1.0 200 - "-" "-" "-" 0.000
-https://temuic.daouoffice.com/app/noti/unread" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134" "-" 0.062
 211.192.163.219 http-nio-80-exec-775 - japan@temuic.com [24/Aug/2018:00:00:04 +0900] GET /api/userside/baseconfig HTTP/1.1 200 3234 "https://temuic.daouoffice.com/app/home" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134" "-" 0.034
 220.85.162.130 http-nio-80-exec-649 - eunji_kim@mofac.com [24/Aug/2018:00:00:04 +0900] GET /api/user/session HTTP/1.1 200 857 "https://mofac.daouoffice.com/app/mail/home" "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" "-" 0.133
 211.192.163.219 http-nio-80-exec-806 - japan@temuic.com [24/Aug/2018:00:00:04 +0900] GET /api/dashboard HTTP/1.1 200 219 "https://temuic.daouoffice.com/app/home" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134" "-" 0.014
@@ -223,4 +222,3 @@ https://temuic.daouoffice.com/app/noti/unread" "Mozilla/5.0 (Windows NT 10.0; Wi
 58.122.130.222 http-nio-80-exec-781 - kim.yi@dongi.co.kr [24/Aug/2018:00:00:58 +0900] GET /api/approval/side HTTP/1.1 200 824 "https://di.daouoffice.com/app/approval/document/1747287" "Mozilla/5.0 (Linux; Android 7.0; SM-N920S Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36 GO-Android/2.5.3.0" "-" 0.102
 39.7.46.192 http-nio-80-exec-602 - happyjms@aerospace.or.kr [24/Aug/2018:00:00:59 +0900] GET /api/board/myhome/gadget?offset=5&page=0 HTTP/1.1 200 1731 "-" "GO-Android/2.5.3.0" "GO-Android" 0.143
 39.7.46.192 http-nio-80-exec-785 - happyjms@aerospace.or.kr [24/Aug/2018:00:00:59 +0900] GET /api/departments/children?page=0&offset=1&rdate=2018-07-10T21%3A29%3A45.075%2B09%3A00&companyId=1390 HTTP/1.1 200 218 "-" "GO-Android/2.5.3.0" "GO-Android" 0.014
-61.
