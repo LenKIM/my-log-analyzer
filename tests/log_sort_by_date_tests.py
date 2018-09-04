@@ -30,7 +30,7 @@ class LogSortByDate(unittest.TestCase):
 
         self.assertEqual([], [])
 
-    def test_sort_datetime_from_start_time_to_end_time(self):
+    def test_print_datetime_from_start_time_to_end_time(self):
 
         localtz = pytz.timezone('Asia/Seoul')
 
@@ -50,6 +50,7 @@ class LogSortByDate(unittest.TestCase):
 
         file_lists.sort(key=lambda temp_single_list: temp_single_list[4])
         result_datetime = []
+
         for single_list in file_lists:
             data_date_time = single_list[4]  # datetime
 

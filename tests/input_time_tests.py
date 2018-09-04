@@ -1,7 +1,7 @@
 import datetime
 import unittest
 
-from do.CustomTime import CustomTime
+from do.custom_time import CustomTime
 
 
 class InputDateTimeTest(unittest.TestCase):
@@ -34,4 +34,5 @@ class InputDateTimeTest(unittest.TestCase):
         time = CustomTime('24/Aug/2018:09:00:00', '24/Aug/2018:18:00:00', 30)
         print(time.start_time)
         print(time.end_time)
+        print(time.range_times)
         self.assertEqual(1, 1)
