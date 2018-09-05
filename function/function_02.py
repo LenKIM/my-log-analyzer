@@ -8,26 +8,27 @@ from helpers import constants
 
 class Function02Impl(Function02):
 
-    def is_satisfied_http_status(self, input_date: list, status_code: str) -> bool:
+    def __init__(self) -> None:
+        _result = []
+        self.result = _result
 
-        if input_date[constants.INDEX_OF_STATUS_NUMBER] is status_code:
+    def is_satisfied_http_status(self, input_data: list, status_code: str) -> bool:
+
+        if input_data[constants.INDEX_OF_STATUS_NUMBER()] is status_code:
             return True
         return False
 
-    def is_satisfied_http_method(self, input_date: list, http_method: str) -> bool:
-        if input_date[constants.INDEX_OF_REST_METHOD] is http_method:
+    def is_satisfied_http_method(self, input_data: list, http_method: str) -> bool:
+        if input_data[constants.INDEX_OF_REST_METHOD()] is http_method:
             return True
         return False
 
-    def remove_if_not_static_resource(self, input_date) -> bool:
+    def remove_if_not_static_resource(self, input_data) -> bool:
         regex = re.compile("([*.])\w+")
-        if regex.search(input_date) is True:
-            
+        if regex.search(input_data) is True:
             return True
         else:
             return False
 
-        pass
-
-    def collect_all_satisfied_request_api(self) -> bool:
-        pass
+    def collect_all_satisfied_request_api(self, input_data) -> None:
+        self.result.append(input_data)
