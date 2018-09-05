@@ -20,7 +20,7 @@ class TimeControlHelper:
             row_list = self.convert_string_to_date_time(row_list)
             file_lists.append(row_list)
 
-        file_lists.sort(key=lambda single_list: single_list[constants.INDEX_OF_DATETIME_IN_LOG])
+        file_lists.sort(key=lambda single_list: single_list[constants.INDEX_OF_DATETIME_IN_LOG()])
         return file_lists
 
     # TODO 여러 방식으로 분기 태워서 기능에 맞게 구현할 필요가 있음.
@@ -29,13 +29,13 @@ class TimeControlHelper:
 
         result_datetime = []
         for single_list in sorted_list:
-            data_date_time = single_list[constants.INDEX_OF_DATETIME_IN_LOG]
+            data_date_time = single_list[constants.INDEX_OF_DATETIME_IN_LOG()]
             if start_time <= data_date_time <= end_time:
                 result_datetime.append(single_list)
         return result_datetime
 
     @staticmethod
     def convert_string_to_date_time(row_list) -> datetime:
-        input_date = datetime.datetime.strptime(row_list[constants.INDEX_OF_DATETIME_IN_LOG], '%d/%b/%Y:%H:%M:%S %z')
-        row_list[constants.INDEX_OF_DATETIME_IN_LOG] = input_date
+        input_date = datetime.datetime.strptime(row_list[constants.INDEX_OF_DATETIME_IN_LOG()], '%d/%b/%Y:%H:%M:%S %z')
+        row_list[constants.INDEX_OF_DATETIME_IN_LOG()] = input_date
         return row_list

@@ -30,3 +30,7 @@ class FileReaderHelper:
         return original_dates
 
     # TODO THREAD 작업을 요함.
+
+    def file_out_to_csv(self):
+        pass
+
