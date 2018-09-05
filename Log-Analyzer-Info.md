@@ -36,7 +36,7 @@ zone = (`+' | `-') 숫자 4개
 HTTP VERSION
 
 9.`200`   
-KNOWN NUMBER
+STATUS_NUMBER
 
 10.`888`   
 패킷 사이즈
