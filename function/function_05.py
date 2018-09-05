@@ -2,7 +2,7 @@
 # !/usr/bin/env python3
 from typing import List
 
-from function.interface_function import Function05
+from function.interface_functions import Function05
 from helpers.user_agent_helper import UserAgentHelper
 
 

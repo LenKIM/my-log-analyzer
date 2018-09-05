@@ -2,7 +2,7 @@
 # !/usr/bin/env python3
 from typing import List
 
-from function.interface_function import Function03
+from function.interface_functions import Function03
 from helpers import constants
 
 

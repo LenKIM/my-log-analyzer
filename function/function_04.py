@@ -2,7 +2,7 @@
 # !/usr/bin/env python3
 import re
 
-from function.interface_function import Function04
+from function.interface_functions import Function04
 from helpers import constants
 
 
