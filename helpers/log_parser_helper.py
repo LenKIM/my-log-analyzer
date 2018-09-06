@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
+import re
 import shlex
 from typing import List
 
@@ -15,7 +16,8 @@ class LogParserHelper:
         row = []
         quote_part = []
         quote_end = ''
-        for input_line in input_line.replace('\r', '').replace('\n', '').split(' '):
+        # for input_line in input_line.replace('\r', '').replace('\n', '').split(' '):
+        for input_line in re.sub('[\r\n]', '', input_line).split(' '):
             if quote_part:
                 quote_part.append(input_line)
             elif '' == input_line:
@@ -43,6 +45,16 @@ class LogParserHelper:
 
     @staticmethod
     def get_the_request_api_and_last_one_and_datetime(string) -> List:
+        list = shlex.split(string)
+        request_api = list[7]
+        datetime = list[4]
+        datetime = datetime[1:]
+        response_time = list[14]
+        element_lists = [request_api, datetime, response_time]
+        return element_lists
+
+    @staticmethod
+    def get_the_request_api_and_last_one_and_datetime2(string) -> List:
         list = shlex.split(string)
         request_api = list[7]
         datetime = list[4]

@@ -2,7 +2,7 @@
 # !/usr/bin/env python3
 from typing import List
 
-from helpers import constants
+import constants
 
 
 class UserAgentHelper:

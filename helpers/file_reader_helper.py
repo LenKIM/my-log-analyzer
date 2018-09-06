@@ -5,7 +5,7 @@ import fileinput
 from multiprocessing.pool import Pool
 from typing import List
 
-from helpers import constants
+import constants
 import helpers.datetime_control_helper
 from helpers.log_parser_helper import LogParserHelper
 
@@ -35,7 +35,7 @@ class FileReaderHelper:
     def read_logs_between_datetime(files_path: List, start_datetime: datetime, end_datetime: datetime):
         range_datetime_list = []
         for line in fileinput.input(files=([file_path for file_path in files_path]),
-                                    openhook=fileinput.hook_encoded("utf-8")):
+                                    openhook=fileinput.hook_encoded("utf-8"), mode='r'):
             parsed_log_list = LogParserHelper.custom_log_parser(line)
 
             parsed_log_list = helpers.datetime_control_helper.TimeControlHelper.convert_str_to_datetime(parsed_log_list)
@@ -59,9 +59,8 @@ class FileReaderHelper:
         temp = []
         for line in fileinput.input(files=([file_path for file_path in files_path]),
                                     openhook=fileinput.hook_encoded("utf-8")):
-
-            parsed_log_list = LogParserHelper.get_the_request_api_and_last_one_and_datetime(line)
             # element_lists = [request_api, datetime, response_time]
+            parsed_log_list = LogParserHelper.get_the_request_api_and_last_one_and_datetime(line)
 
             parsed_log_list = helpers.datetime_control_helper.TimeControlHelper.convert_str_to_datetime_specific(
                 parsed_log_list)
@@ -69,7 +68,7 @@ class FileReaderHelper:
             response_time = float(parsed_log_list[2])
 
             if start_datetime <= data_datetime <= end_datetime:
-                if min_value <= response_time:
+                if min_value < response_time:
                     min_value = response_time
                     temp = parsed_log_list
 
