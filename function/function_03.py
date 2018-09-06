@@ -20,6 +20,7 @@ class Function03Impl(Function03):
         status_result = {}
         for line in fileinput.input(files=([file_path for file_path in files_path]),
                                     openhook=fileinput.hook_encoded("utf-8")):
+
             # TODO 각각의 시간 위치에 자리잡을 수 있도록 짜는 것이 중요하다고 판단됨
 
             parsed_log_list = LogParserHelper.custom_log_parser(line)

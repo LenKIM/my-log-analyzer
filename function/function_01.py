@@ -3,8 +3,7 @@
 from typing import List
 
 from function.interface_functions import Function01
-from helpers import constants
-from tests.log_reader_files_tests import custom_log_parser
+from helpers.log_parser_helper import LogParserHelper
 
 
 class Function01Impl(Function01):
@@ -21,9 +20,10 @@ class Function01Impl(Function01):
 
         for row in divided_list_by_datetime:
 
-            row = custom_log_parser(row)
-            response_time = row[constants.INDEX_OF_RESPONSE_TIME()]
-            response_time = float(response_time)
+            row = LogParserHelper.get_the_last_one(row)
+
+            # response_time = row[constants.INDEX_OF_RESPONSE_TIME()]
+            response_time = float(row)
             if response_time > min_response_time:
                 min_response_time = response_time
                 result_log_line = row
