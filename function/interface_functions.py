@@ -9,13 +9,6 @@ from typing import List
 
 class Function01(ABC):
 
-    def file_open(self) -> List:
-        pass
-
-    def file_sort_by_date_hour_or_minute(self, start_time: str, end_time: str, selected_hour_or_minutes=None,
-                                         interval_time=None) -> List:
-        pass
-
     @abstractmethod
     def extract_the_longest_response_time_request_api(self, sorted_and_divide_list_by_datetime: list) -> str:
         """

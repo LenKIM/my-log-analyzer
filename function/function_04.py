@@ -5,7 +5,7 @@ import re
 from typing import Dict, List
 
 from function.interface_functions import Function04
-from helpers import constants
+import constants
 from helpers.log_parser_helper import LogParserHelper
 
 

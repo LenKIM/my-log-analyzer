@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
 import re
-from typing import List
+from typing import Dict, List
 
 from function.interface_functions import Function02
-from helpers import constants
+import constants
 
 
 class Function02Impl(Function02):
@@ -14,13 +14,14 @@ class Function02Impl(Function02):
         self.result = _result
 
     def is_satisfied_http_status(self, input_data: list, status_code: str) -> bool:
-
-        if input_data[constants.INDEX_OF_STATUS_NUMBER()] is status_code:
+        input_http_status = input_data[constants.INDEX_OF_STATUS_NUMBER()]
+        if input_http_status == status_code:
             return True
         return False
 
     def is_satisfied_http_method(self, input_data: list, http_method: str) -> bool:
-        if input_data[constants.INDEX_OF_REST_METHOD()] is http_method:
+        rest_method = input_data[constants.INDEX_OF_REST_METHOD()]
+        if rest_method == http_method:
             return True
         return False
 
@@ -32,9 +33,11 @@ class Function02Impl(Function02):
         else:
             return False
 
-    def collect_all_satisfied_request_api(self, input_data: List) -> None:
+    def collect_all_satisfied_request_api(self, input_data: List) -> Dict:
         rest_api = input_data[constants.INDEX_OF_REST_API()]
         if rest_api in self.result:
             self.result[rest_api] = self.result[rest_api] + 1
         else:
             self.result[rest_api] = 1
+
+        return self.result
