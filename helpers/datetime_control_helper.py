@@ -5,7 +5,8 @@ from typing import List
 
 import pytz
 
-from helpers import constants, file_reader_helper
+from helpers import file_reader_helper
+import constants
 from helpers.log_parser_helper import LogParserHelper
 
 
@@ -15,7 +16,14 @@ class TimeControlHelper:
         super().__init__()
 
     @staticmethod
+    def convert_str_to_datetime_with_single_str(_datetime) -> datetime:
+
+        input_date = datetime.datetime.strptime(_datetime, '%d/%b/%Y:%H:%M:%S %z')
+        return input_date
+
+    @staticmethod
     def convert_str_to_datetime(row_list) -> datetime:
+
         input_date = datetime.datetime.strptime(row_list[constants.INDEX_OF_DATETIME_IN_LOG()], '%d/%b/%Y:%H:%M:%S %z')
         row_list[constants.INDEX_OF_DATETIME_IN_LOG()] = input_date
         return row_list
@@ -38,7 +46,6 @@ class TimeControlHelper:
         file_lists.sort(key=lambda single_list: single_list[constants.INDEX_OF_DATETIME_IN_LOG()])
         return file_lists
 
-    # TODO 여러 방식으로 분기 태워서 기능에 맞게 구현할 필요가 있음.
     def datetime_print_from_start_to_end(self, original_dates: list, start_time: str, end_time: str) -> List:
         sorted_list = self.datetime_sort(original_dates)
 
@@ -51,6 +58,7 @@ class TimeControlHelper:
 
     @staticmethod
     def select_days_from_datetimes(start_day, end_day) -> List:
+        # return ['/Users/len/log-analyer-assignment/tests/fixtures/text.txt']
         files_path_list = []
         for working_day in range(start_day, end_day + 1, 1):
             if working_day is 24:
