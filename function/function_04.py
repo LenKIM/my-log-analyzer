@@ -40,8 +40,6 @@ class Function04Impl(Function04):
                 self.result[rest_api] = 1
 
         return self.result
-        # for single_data in self.result:
-        #     print("HTTP STATUS {}: COUNT {}".format(single_data, self.result[single_data]))
 
 
 # def file_read_and_execute_at(a, b, callback):
