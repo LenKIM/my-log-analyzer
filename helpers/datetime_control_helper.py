@@ -3,6 +3,8 @@
 import datetime
 from typing import List
 
+import pytz
+
 from helpers import constants, file_reader_helper
 from helpers.log_parser_helper import LogParserHelper
 
@@ -17,6 +19,14 @@ class TimeControlHelper:
         input_date = datetime.datetime.strptime(row_list[constants.INDEX_OF_DATETIME_IN_LOG()], '%d/%b/%Y:%H:%M:%S %z')
         row_list[constants.INDEX_OF_DATETIME_IN_LOG()] = input_date
         return row_list
+
+    @staticmethod
+    def convert_str_to_datetime_specific(list) -> datetime:
+
+        localtz = pytz.timezone('Asia/Seoul')
+        input_date = localtz.localize(datetime.datetime.strptime(list[1], '%d/%b/%Y:%H:%M:%S'))
+        list[1] = input_date
+        return list
 
     def datetime_sort(self, original_dates: list) -> List:
         file_lists = []

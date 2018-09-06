@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
+import shlex
 from typing import List
 
 
@@ -34,3 +35,18 @@ class LogParserHelper:
                     row.append(' '.join(quote_part)[1:-1].replace('\\' + quote_end, quote_end))
                     quote_end = quote_part = None
         return row
+
+    @staticmethod
+    def get_the_last_one(string) -> str:
+        abc = string[-5:]
+        return abc
+
+    @staticmethod
+    def get_the_request_api_and_last_one_and_datetime(string) -> List:
+        list = shlex.split(string)
+        request_api = list[7]
+        datetime = list[4]
+        datetime = datetime[1:]
+        response_time = list[14]
+        element_lists = [request_api, datetime, response_time]
+        return element_lists

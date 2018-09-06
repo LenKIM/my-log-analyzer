@@ -9,9 +9,9 @@ from helpers import constants
 import helpers.datetime_control_helper
 from helpers.log_parser_helper import LogParserHelper
 
-file_path_2018_08_24 = ["/Users/len/log-analyer-assignment/logfiles/20180824/ap1.daouoffice.com_access_2018-08-24.txt"]
-                        # "/Users/len/log-analyer-assignment/logfiles/20180824/ap2.daouoffice.com_access_2018-08-24.txt",
-                        # "/Users/len/log-analyer-assignment/logfiles/20180824/ap3.daouoffice.com_access_2018-08-24.txt"]
+file_path_2018_08_24 = ["/Users/len/log-analyer-assignment/logfiles/20180824/ap1.daouoffice.com_access_2018-08-24.txt",
+                        "/Users/len/log-analyer-assignment/logfiles/20180824/ap2.daouoffice.com_access_2018-08-24.txt",
+                        "/Users/len/log-analyer-assignment/logfiles/20180824/ap3.daouoffice.com_access_2018-08-24.txt"]
 
 file_path_2018_08_27 = ["/Users/len/log-analyer-assignment/logfiles/20180827/ap1.daouoffice.com_access_2018-08-27.txt",
                         "/Users/len/log-analyer-assignment/logfiles/20180827/ap2.daouoffice.com_access_2018-08-27.txt",
@@ -36,8 +36,8 @@ class FileReaderHelper:
         range_datetime_list = []
         for line in fileinput.input(files=([file_path for file_path in files_path]),
                                     openhook=fileinput.hook_encoded("utf-8")):
-
             parsed_log_list = LogParserHelper.custom_log_parser(line)
+
             parsed_log_list = helpers.datetime_control_helper.TimeControlHelper.convert_str_to_datetime(parsed_log_list)
             data_datetime = parsed_log_list[constants.INDEX_OF_DATETIME_IN_LOG()]
 
@@ -51,6 +51,29 @@ class FileReaderHelper:
                 break
 
         return range_datetime_list
+
+    @staticmethod
+    def read_logs_only_request_api_and_response_time(files_path: List, start_datetime: datetime,
+                                                     end_datetime: datetime):
+        min_value = 0.0
+        temp = []
+        for line in fileinput.input(files=([file_path for file_path in files_path]),
+                                    openhook=fileinput.hook_encoded("utf-8")):
+
+            parsed_log_list = LogParserHelper.get_the_request_api_and_last_one_and_datetime(line)
+            # element_lists = [request_api, datetime, response_time]
+
+            parsed_log_list = helpers.datetime_control_helper.TimeControlHelper.convert_str_to_datetime_specific(
+                parsed_log_list)
+            data_datetime = parsed_log_list[1]
+            response_time = float(parsed_log_list[2])
+
+            if start_datetime <= data_datetime <= end_datetime:
+                if min_value <= response_time:
+                    min_value = response_time
+                    temp = parsed_log_list
+
+        return temp
 
     @staticmethod
     def file_reader_by_range_datetime(files_path: List, start_datetime: datetime, end_datetime: datetime):
