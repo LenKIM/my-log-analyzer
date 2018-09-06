@@ -33,5 +33,4 @@ class LogParserHelper:
                 if length and quote_end == input_line[-1] != '\\':
                     row.append(' '.join(quote_part)[1:-1].replace('\\' + quote_end, quote_end))
                     quote_end = quote_part = None
-
         return row
