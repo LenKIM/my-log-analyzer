@@ -62,3 +62,6 @@ https://blog.outsider.ne.kr/274
 BASIC https://mellowd.co.uk/ccie/?p=5807
 
 https://www.techbeamers.com/python-multithreading-concepts/
+
+## 스트링 다루는 법
+https://www.digitalocean.com/community/tutorials/how-to-index-and-slice-strings-in-python-3
