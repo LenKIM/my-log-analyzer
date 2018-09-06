@@ -18,7 +18,7 @@ class TimeIntervalTests(unittest.TestCase):
         end_time = datetime.strptime('24/Aug/2018:18:00:00', '%d/%b/%Y:%H:%M:%S')
 
         dts = [dt.strftime('%d/%b/%Y:%H:%M:%S') for dt in
-               datetime_range(start_time, end_time, timedelta(minutes=30))]
+               datetime_range(start_time, end_time, timedelta(hours=1))]
 
         self.assertEqual(['24/Aug/2018:09:00:00',
                           '24/Aug/2018:09:30:00',

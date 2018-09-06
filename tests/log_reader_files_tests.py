@@ -1,6 +1,8 @@
+import re
 import time
 from typing import List
 import unittest
+
 
 
 def custom_log_parser(string) -> List:
@@ -8,7 +10,8 @@ def custom_log_parser(string) -> List:
     row = []
     quote_part = []
     quote_end = ''
-    for string in string.replace('\r', '').replace('\n', '').split(' '):
+    # for string in string.replace('\r', '').replace('\n', '').split(' '):
+    for string in re.sub('[\r\n]', '', string).split(' '):
         if quote_part:
             quote_part.append(string)
         elif '' == string:

@@ -10,6 +10,7 @@ class CountStatusCodeTests(unittest.TestCase):
     def test_status_count_up(self):
 
         f = open('/Users/len/log-analyer-assignment/tests/fixtures/text.txt', 'r', encoding="utf-8")
+        f2 = open('/Users/len/log-analyer-assignment/tests/fixtures/output.txt', 'w', encoding="utf-8")
 
         lines = f.readlines()
         file_lists = []
@@ -32,5 +33,6 @@ class CountStatusCodeTests(unittest.TestCase):
 
         for single_data in result:
             print("STATUS CODE {}: COUNT {}".format(single_data, result[single_data]))
+
 
         self.assertEqual([], [])

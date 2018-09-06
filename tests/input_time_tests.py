@@ -31,7 +31,7 @@ class InputDateTimeTest(unittest.TestCase):
             self.assertEqual(parse_data2.time(), datetime.time(0, 0, 4))
 
     def test_time_one_hour_interval(self):
-        time = CustomTime('24/Aug/2018:09:00:00', '24/Aug/2018:18:00:00', 30)
+        time = CustomTime('24/Aug/2018:09:00:00', '24/Aug/2018:18:00:00', 'H', 1)
         print(time.start_time)
         print(time.end_time)
         print(time.range_times)
