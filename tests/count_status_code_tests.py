@@ -1,7 +1,7 @@
 import datetime
 import unittest
 
-from helpers import constants
+import constants
 from tests.log_reader_files_tests import custom_log_parser
 
 
@@ -33,6 +33,5 @@ class CountStatusCodeTests(unittest.TestCase):
 
         for single_data in result:
             print("STATUS CODE {}: COUNT {}".format(single_data, result[single_data]))
-
 
         self.assertEqual([], [])
