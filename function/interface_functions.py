@@ -9,6 +9,13 @@ from typing import List
 
 class Function01(ABC):
 
+    def file_open(self) -> List:
+        pass
+
+    def file_sort_by_date_hour_or_minute(self, start_time: str, end_time: str, selected_hour_or_minutes=None,
+                                         interval_time=None) -> List:
+        pass
+
     @abstractmethod
     def extract_the_longest_response_time_request_api(self, sorted_and_divide_list_by_datetime: list) -> str:
         """
@@ -64,12 +71,11 @@ class Function02(ABC):
 class Function03(ABC):
 
     @abstractmethod
-    def count_http_status_code(self, data: List, start_time: str, end_time: str) -> bool:
+    def count_http_status_code(self, data: List, range_times: List) -> bool:
         """
         dict을 활용한 count.
+        :param range_times:
         :param data:
-        :param start_time:
-        :param end_time:
         :return:
         """
 
@@ -88,7 +94,7 @@ class Function04(ABC):
         pass
 
     @abstractmethod
-    def count_many_call_request_request_api(self, sorted_data: list) -> List:
+    def count_many_call_request_request_api(self, file_list: list) -> List:
         """"
         __dict__을 활용
         """
