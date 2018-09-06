@@ -37,17 +37,22 @@ if __name__ == '__main__':
 
         start_count_time = time.time()
         log_lines_from_start_time_to_end_time = file_reader_helper.multiprocessing_process(
-            FileReaderHelper.read_logs_between_datetime, (files_path_list, cus_time.start_time, cus_time.end_time))
+            FileReaderHelper.read_logs_only_request_api_and_response_time,
+            (files_path_list, cus_time.start_time, cus_time.end_time))
         end_count_time = time.time()
-        the_longest_response_time_request_api = function_01.extract_the_longest_response_time_request_api(
-            log_lines_from_start_time_to_end_time)
+        # the_longest_response_time_request_api = function_01.extract_the_longest_response_time_request_api(
+        #     log_lines_fr12om_start_time_to_end_time)
         print(end_count_time - start_count_time)
         # 24/Aug/2018:00:01:02 24/Aug/2018:05:01:30
-        # print(the_longest_response_time_request_api)
+        print(log_lines_from_start_time_to_end_time[0])
 
     elif select_number is FUNCTION_02():
 
-        print('현재 사용자님께서 입력하신 시작시간은 ' + cus_time.start_time + ', 종료시간은 ' + cus_time.end_time + '입니다.')
+        print('현재 사용자님께서 입력하신 시작시간은\n')
+        print(cus_time.start_time)
+        print('종료 시간은 ')
+        print(cus_time.end_time)
+        print('입니다.')
 
         http_status_question = [
             inquirer.List('select_http_status',
