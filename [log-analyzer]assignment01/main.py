@@ -2,7 +2,6 @@
 # !/usr/bin/env python3
 from collections import OrderedDict
 import datetime
-import time
 
 import inquirer
 from inquirer.themes import GreenPassion
@@ -48,12 +47,9 @@ if __name__ == '__main__':
             # files_path_list = ['/Users/len/log-analyer-assignment/tests/fixtures/text.txt']
 
             file_reader_helper = FileReaderHelper()
-
-            start_count_time = time.time()
             log_lines_from_start_time_to_end_time = file_reader_helper.multiprocessing_process(
                 FileReaderHelper.read_logs_only_request_api_and_response_time,
                 (files_path_list, cus_time.start_time, cus_time.end_time))
-            end_count_time = time.time()
             # element_lists = [request_api, datetime, response_time]
 
             f.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + 'Request_api : ' +
@@ -63,8 +59,6 @@ if __name__ == '__main__':
             print(log_lines_from_start_time_to_end_time[0])
             print(log_lines_from_start_time_to_end_time[1])
             print(log_lines_from_start_time_to_end_time[2])
-
-            print(end_count_time - start_count_time)
 
         elif select_number is FUNCTION_02():
 
@@ -189,7 +183,6 @@ if __name__ == '__main__':
             file_reader_helper = FileReaderHelper()
 
             files_path_list = TimeControlHelper.select_days_from_datetimes(start_day, end_day)
-
             log_lines_from_start_time_to_end_time = file_reader_helper.multiprocessing_process(
                 FileReaderHelper.read_logs_between_datetime,
                 (files_path_list, cus_time.start_time, cus_time.end_time))

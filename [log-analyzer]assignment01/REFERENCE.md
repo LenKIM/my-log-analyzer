@@ -15,6 +15,7 @@ https://www.quora.com/Which-language-is-the-fastest-in-reading-a-large-CSV-file
 https://realpython.com/working-with-large-excel-files-in-pandas/
 
 https://stackoverflow.com/questions/22084338/pandas-dataframe-performance
+
 https://tomaugspurger.github.io/modern-4-performance
 
 https://stackoverflow.com/questions/27384093/fastest-way-to-write-huge-data-in-file
