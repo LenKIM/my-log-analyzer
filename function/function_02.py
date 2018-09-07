@@ -3,8 +3,8 @@
 import re
 from typing import Dict, List
 
-from function.interface_functions import Function02
 import constants
+from function.interface_functions import Function02
 
 
 class Function02Impl(Function02):

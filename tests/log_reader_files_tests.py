@@ -4,7 +4,6 @@ from typing import List
 import unittest
 
 
-
 def custom_log_parser(string) -> List:
     qe = qp = None
     row = []

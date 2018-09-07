@@ -46,14 +46,17 @@ class Function02(ABC):
     @abstractmethod
     def remove_if_not_static_resource(self, data: str) -> bool:
         """
+        만약 정적리소스가 아니라면 제거
         :param data:
         :return:
+
         """
         pass
 
     @abstractmethod
     def collect_all_satisfied_request_api(self, data: str) -> bool:
         """
+        조건에 해당하는 Request API 만 저장한다.
         :param data:
         :return:
         """
@@ -66,7 +69,7 @@ class Function03(ABC):
     @abstractmethod
     def count_http_status_code(self, data: List, range_times: List) -> bool:
         """
-        dict을 활용한 count.
+        Dict을 활용하여 http status 상태별 카운트
         :param range_times:
         :param data:
         :return:
@@ -81,6 +84,7 @@ class Function04(ABC):
     @abstractmethod
     def remove_if_not_static_resource(self, data: str) -> bool:
         """
+        만약 정적리소스가 아니라면 제거
         :param data:
         :return:
         """
@@ -88,8 +92,10 @@ class Function04(ABC):
 
     @abstractmethod
     def count_many_call_request_request_api(self, file_list: list) -> List:
-        """"
-        __dict__을 활용
+        """
+        가장 많이 불린 request_api 별로 카운트 한다.
+        :param file_list:
+        :return:
         """
         pass
 
@@ -100,6 +106,7 @@ class Function05(ABC):
     @abstractmethod
     def abstract_client_agent_info_from_request_api(self, line_str):
         """
+        해당하는 유저 에이전트를 추출한다.
         :param line_str:
         :return:
         """

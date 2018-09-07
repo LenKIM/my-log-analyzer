@@ -4,8 +4,8 @@ import fileinput
 import re
 from typing import Dict, List
 
-from function.interface_functions import Function04
 import constants
+from function.interface_functions import Function04
 from helpers.log_parser_helper import LogParserHelper
 
 
@@ -16,7 +16,6 @@ class Function04Impl(Function04):
 
     def remove_if_not_static_resource(self, data: str) -> bool:
 
-        # TODO 예외 발견됨.
         regex = re.compile("([*.])\w+")
         if regex.search(data) is True:
             return True
@@ -40,7 +39,6 @@ class Function04Impl(Function04):
                 self.result[rest_api] = 1
 
         return self.result
-
 
 # def file_read_and_execute_at(a, b, callback):
 #     callback(a, b)

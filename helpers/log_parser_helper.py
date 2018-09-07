@@ -52,13 +52,3 @@ class LogParserHelper:
         response_time = list[14]
         element_lists = [request_api, datetime, response_time]
         return element_lists
-
-    @staticmethod
-    def get_the_request_api_and_last_one_and_datetime2(string) -> List:
-        list = shlex.split(string)
-        request_api = list[7]
-        datetime = list[4]
-        datetime = datetime[1:]
-        response_time = list[14]
-        element_lists = [request_api, datetime, response_time]
-        return element_lists

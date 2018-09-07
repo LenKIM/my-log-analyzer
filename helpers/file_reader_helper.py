@@ -85,5 +85,3 @@ class FileReaderHelper:
             data_date_time = parsed_log_list[constants.INDEX_OF_DATETIME_IN_LOG()]
             if start_datetime <= data_date_time <= end_datetime:
                 range_datetime_list.append(line)
-
-            pass
