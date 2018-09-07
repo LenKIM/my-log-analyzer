@@ -13,7 +13,8 @@ class CommandLineHelper:
 
     @staticmethod
     def intro():
-        f = open('/Users/len/log-analyer-assignment/helpers/intro_sign.txt', 'r', encoding='utf8')
+        f = open('/Users/len/log-analyer-assignment/[log-analyzer]assignment01/helpers/intro_sign.txt', 'r',
+                 encoding='utf8')
         lines = f.readlines()
         for single_line in lines:
             print(single_line, end='')
