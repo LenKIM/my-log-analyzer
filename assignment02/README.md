@@ -1,3 +1,5 @@
+# 아는 만큼 보이고 보이는 만큼 개선할 수 있다.
+
 ### 2# [과제] “장애 인지와 분석에 대한 솔루션”
 
 과제 1에서 만든 로그 분석기의 기능 스펙 이외에도 
@@ -11,8 +13,21 @@
 ### [참고사항]
 
 - `분석에 대한 방법`은 여러가지 방법이 있을 것이다.` 로그 분석기 데이터`를 `웹 화면에 Visualization을 하는것도 특정 모니터링 오픈소스를 사용하는 것`도 방법이 될 수 있다. `본인`만의 `솔루션`을 찾고 `왜 그걸 사용했는지 이유`가 있으면 된다.
--  * 장애 인지에 대한 부분도 다양한 도구들을 사용해도 무방하다.
+- * 장애 인지에 대한 부분도 다양한 도구들을 사용해도 무방하다.
 - 전반적인 문제해결 과정을 보는 문제이기 때문에 S/W 적으로 완벽하진 않아도 좋다. 현재 주어진 자원(시간과 상황)에서 본인만에 솔루션을 찾아보자.
+- 선임님들 또는 선배님에게 물어보라고 한 이유는 무엇인가?
+
+# My Solution
+
+\- 사업적이고 집요하게 접근하기 / 장애인지와 분석에 대한 솔루션 / Think difference
+
+\- 똑같은 데이터라도 서로 다른 의견이 제기 될 수 있다, 왜? 보는 시각이 다를테니까. 그럼 어떻게 다를 것인가?
+
+\- 
+
+
+
+
 
 ## 1. 어떻게 접근할 것인가?
 
@@ -29,4 +44,19 @@
 \-
 
 ## 4. 무엇을 물어볼 수 있는가?
+
+- 로깅에 해당되는 서비스는 어떤것들이 있는가? 
+- 하루에 출력되는 양?
+- 다우의 기술스택에 대해서 알아야 한다.
+- 어떤 정보를 필요로 하는가? (Ex, )
+
+## 5. REFERENCE
+
+[Java 웹 기반 시스템의 실시간 성능 모니터링을 위한 APM시스템에서 사용자화면과 APM서버 간 데이터 전송방식 개선]
+
+1. http://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=5d6320d5244d5362ffe0bdc3ef48d419
+2. [조대협블로그 - 서버 모니터링 및 APM 솔루션 모음] - http://bcho.tistory.com/1065
+3. 100+ Server Monitoring & Application Performance Monitoring Solutions  
+   https://haydenjames.io/50-top-server-monitoring-application-performance-monitoring-apm-solutions/
+4. https://www.dynatrace.com/news/blog/choose-your-apm-tool-wisely/
 
