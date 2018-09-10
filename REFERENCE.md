@@ -58,11 +58,22 @@ https://blog.outsider.ne.kr/274
 
 
 
+## 스트링 다루는 법
+https://www.digitalocean.com/community/tutorials/how-to-index-and-slice-strings-in-python-3
+
+
+
+## 파이썬 멀티프로세스
+
+https://www.programcreek.com/python/example/8456/multiprocessing.Manager
+
+
+
 ## 파이썬 멀티쓰레딩
 
 BASIC https://mellowd.co.uk/ccie/?p=5807
 
 https://www.techbeamers.com/python-multithreading-concepts/
 
-## 스트링 다루는 법
-https://www.digitalocean.com/community/tutorials/how-to-index-and-slice-strings-in-python-3
+
+
