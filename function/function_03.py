@@ -3,7 +3,7 @@
 import fileinput
 from typing import Dict, List
 
-import constants
+from helpers import constants
 from function.interface_functions import Function03
 from helpers.datetime_control_helper import TimeControlHelper
 from helpers.log_parser_helper import LogParserHelper

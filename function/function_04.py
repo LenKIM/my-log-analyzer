@@ -4,7 +4,7 @@ import fileinput
 import re
 from typing import Dict, List
 
-import constants
+from helpers import constants
 from function.interface_functions import Function04
 from helpers.log_parser_helper import LogParserHelper
 
@@ -39,13 +39,3 @@ class Function04Impl(Function04):
                 self.result[rest_api] = 1
 
         return self.result
-
-# def file_read_and_execute_at(a, b, callback):
-#     callback(a, b)
-#
-#
-# def aabbcc(a, b):
-#     print(a + b)
-#
-#
-# file_read_and_execute_at(1, 2, aabbcc)
