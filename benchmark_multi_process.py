@@ -16,16 +16,12 @@ def get_filename_with_ext(filepath):
     return os.path.basename(filepath)
 
 
-def get_filename(filepath):
-    filename = get_filename_with_ext(filepath)
-    filename, file_extension = os.path.splitext(filename)
-    return filename
-
-
 def read_log_files(file_paths):
     jobs = []
     manager = multiprocessing.Manager()
     return_list = manager.list()
+    # return_tuple = manager.Queue()
+
     # return_dict = manager.dict()
     for file_path in file_paths:
         p = multiprocessing.Process(target=read_log_worker, args=(file_path, return_list))
@@ -42,6 +38,7 @@ def read_log_worker(file_path, return_list) -> List:
     f = open(file_path, 'r', encoding='utf8')
     lines = f.readlines()
     line_count = 0
+
     for line in tqdm(lines):
         a = LogParserHelper.custom_log_parser(line)
         line_count = line_count + 1
@@ -57,4 +54,4 @@ print(function_01.extract_the_longest_response_time_request_api(list))
 e = time.time()
 print(e - s)
 # for key in dic.keys():
-#     print(key, ":", dic[key]) 
+#     print(key, ":", dic[key])
