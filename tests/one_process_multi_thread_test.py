@@ -34,7 +34,7 @@ def read_log_worker(file_path, return_list) -> List:
 
     a = myThread(1, file_path, total_list)
     for line in tqdm(lines):
-        a = LogParserHelper.custom_log_parser(line)
+        a = LogParserHelper.raw_log_parser(line)
         line_count = line_count + 1
         return_list.append(a)
 
@@ -107,7 +107,7 @@ class myThread(threading.Thread):
         # f_write = open('/Users/len/log-analyer-assignment/out/test2-1.csv', 'w', encoding='utf8')
         lines = f.readlines()
         for line in tqdm(lines):
-            a = LogParserHelper.custom_log_parser(line)
+            a = LogParserHelper.raw_log_parser(line)
             self.list1.append(a)
 
         f.close()

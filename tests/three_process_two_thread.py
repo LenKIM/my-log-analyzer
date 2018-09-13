@@ -36,7 +36,7 @@ class myThread(threading.Thread):
         lines = f.readlines()
         for line in tqdm(lines):
             pass
-            a = LogParserHelper.custom_log_parser(line)
+            a = LogParserHelper.raw_log_parser(line)
             self.list1.append(a)
 
         f.close()

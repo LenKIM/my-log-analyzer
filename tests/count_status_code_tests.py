@@ -1,7 +1,7 @@
 import datetime
 import unittest
 
-import constants
+from helpers import constants
 from tests.log_reader_files_tests import custom_log_parser
 
 
