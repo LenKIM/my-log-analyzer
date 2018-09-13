@@ -6,21 +6,16 @@
 
 `다양한 관점에서 장애 원인 분석을 할 수 있는 오픈소스 도구`들이 있을 것이다. 
 
-어떠한 도구 라도 좋으니 `분석을 하기 위한 방법`과 `장애가 났을 때 빠르게 상황을 인지할 수 있는 방법`을 찾아 
-
-`솔루션`으로 제시하고 `왜 그러한 방법을 솔루션`으로 사용했는지 이유를 설명해보자.
+어떠한 도구 라도 좋으니 `분석을 하기 위한 방법`과 `장애가 났을 때 빠르게 상황을 인지할 수 있는 방법`을 찾아 `솔루션`으로 제시하고 `왜 그러한 방법을 솔루션`으로 사용했는지 이유를 설명해보자.
 
 ### [참고사항]
 
 - `분석에 대한 방법`은 여러가지 방법이 있을 것이다.` 로그 분석기 데이터`를 `웹 화면에 Visualization을 하는것도 특정 모니터링 오픈소스를 사용하는 것`도 방법이 될 수 있다. `본인`만의 `솔루션`을 찾고 `왜 그걸 사용했는지 이유`가 있으면 된다.
 
-- * 장애 인지에 대한 부분도 다양한 도구들을 사용해도 무방하다.
+  \- 장애 인지에 대한 부분도 다양한 도구들을 사용해도 무방하다.
 
 - 전반적인 문제해결 과정을 보는 문제이기 때문에 S/W 적으로 완벽하진 않아도 좋다. 현재 주어진 자원(시간과 상황)에서 본인만에 솔루션을 찾아보자.
 
-  \- 선임님들 또는 선배님에게 물어보라고 한 이유는 무엇인가?
-
-  \- 페르소나 기법을 사용해볼 필요가 있는가?
 
 # My Solution
 
@@ -46,19 +41,12 @@
 
 - 다우 개발자를 위한
 - 다우 마케터를 위한
-- 
-
-
 
 ## 1. 어떻게 접근할 것인가?
 
-\- APM 과 유사. 그러나 분석을 하기 위한 방법이나, 장애가 났을 때 빠르게 상황을 인지할 수 있는 방법을 조사해야함.
-
-\- 
+\- APM 과 유사. 그러나 분석을 하기 위한 방법이나, 장애가 났을 때 빠르게 상황을 인지할 수 있는 방법을 조사해야함. 
 
 ## 2. 참고 사항을 만족시킬 수 있는가?
-
-\- 
 
 ## 3. 무엇을 조사해야 하는가?
 
@@ -68,7 +56,7 @@
 
 사무실은 물론,  언제 어디서나 손 끝에서 펼쳐지는 업무 공간 다우오피스.메일부터 전자결재까지! 기업에 필요한 모든 업무 기능을 PC와 모바일에 최적화하여 제공합니다.
 
-\- 
+
 
 ## 4. 무엇을 물어볼 수 있는가?
 
@@ -78,7 +66,7 @@
 
 - 다우의 기술스택에 대해서 알아야 한다.
 
-- 어떤 정보를 필요로 하는가? (Ex, )
+- 어떤 정보를 필요로 하는가? 
 
 - 고객의 유입경로, 사이트 이용형태, 목표 달성 여부
 
@@ -94,17 +82,21 @@
 3. 100+ Server Monitoring & Application Performance Monitoring Solutions  
    https://haydenjames.io/50-top-server-monitoring-application-performance-monitoring-apm-solutions/
 4. https://www.dynatrace.com/news/blog/choose-your-apm-tool-wisely/
-
 5. [로그분석 왜 필요한가?]http://yslab.kr/68
 6. [고객은 어디서 유입되는가?]http://yslab.kr/69?category=170704
 7. [우아한형제]http://woowabros.github.io/woowabros/2017/07/30/logdata.html
 8. 벤더가 제공해주는 룰만을 그대로 사용하기 보다는 자신의 환경에 맞는 룰을 직접 만들려는 시도가 늘고 있으며, 보안솔루션의 효용성에 대해 고민하는 사례 역시 늘고 있다. 이러한 요구와 고민을 해결하기 위해서는 사이버 보안의 최전방인 보안관제 분야가 좀더 발전해야 한다. 그런 의미에서 보안관제 컨설팅 시장을 만들고 활동해 보고 싶다.
 9. [Fuzzy C-Means 클러스터링을 이용한 웹 로그 분석 기법]http://share.ewha.ac.kr/content/?p=000000004541
 10. [오픈소스 기반 실시간 보안로그분석, 어떻게]http://www.zdnet.co.kr/news/news_view.asp?artice_id=20140414115619&type=xml
+11. [장애 예시]http://theeye.pe.kr/archives/94
+12. https://developer.mozilla.org/ko/docs/Web/HTTP/Status
+13. https://blog.rapid7.com/2017/06/19/5-ways-to-use-log-data-to-analyze-system-performance/
 
 #다른 서비스들은 무엇이 있는가?
 
-
+1. 주피터 노트북  
+   http://blog.ncsoft.com/?p=21870
+2. Goaccess  
 
 ## 왜 '장애인지와 분석에 대한 솔루션' 써야 하는가?
 
@@ -117,15 +109,7 @@
 
 ## Open Source
 
-\#1 PROMETHEUS 모니터링 솔루션
 
-| 커뮤니티 | <https://groups.google.com/forum/#!forum/prometheus-developers><https://github.com/prometheus/prometheus> |
-| -------- | ------------------------------------------------------------ |
-| 라이센스 | Apache License v2.0최신 버전은 Ver 1.0.1  ( 2016 년 7 월 21 일 출시) |
-| 개요     | Prometheus는 독일 베를린에 본사를 둔 음악 유통 플랫폼 제공자인 SoundCloud사 를 중심으로 개발하는 시계열 데이터 베이스Go 언어로 개발모니터링 클라이언트 노드에 Docker가 설치되어 있으면, 서버와 클라이언트 그리고 alertmanager 모두 컨테이너로 설치지원모니터링 노드에 설치된 Prometheus는 Web API로 연결되어 각 노드를 브라우저에서 직접 참조 |
-| 특징     | 데이터는 key-value 형태의 NoSQL제품인 LevelDB에 저장Go / Java / Ruby / Python으로 작성된 클라이언트 라이브러리를 GihHub 에서 다운로드Docker 모니터링 용도로 많이 사용됨 |
-| 고려사항 | 벤더에 의한 기술 지원은 없으며, 커뮤니티에서만 지원Docker 확대와 함께 앞으로가 기대되는 제품 |
-| 참고     | TeamSEGO/github-trend-kr::19.prometheus 소개 – <https://github.com/TeamSEGO/github-trend-kr/blob/master/002_201502-monthly/002-19_prometheus.md>Prometheus 다운로드- <https://prometheus.io/download/>Prometheus Online Demo – <http://demo.robustperception.io:9090/graph>Graphing MySQL performance with Prometheus and Grafana – <https://www.percona.com/blog/2016/02/29/graphing-mysql-performance-with-prometheus-and-grafana/> |
 
 기술적인 분야에 들어간다.
 
@@ -144,3 +128,5 @@ End to End 누구도 납득할 수 있는 솔루션.
 스토리 텔링이 필요하다.
 
 **장애를 인식할 수 있어야하고 분석할 수 있는가??**
+
+전화로 문의가 들어옴.
