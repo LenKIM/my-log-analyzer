@@ -4,20 +4,24 @@ from abc import ABC, abstractmethod
 
 # 특정시간의 응답시간
 # 오래 걸린 Request API 를 추출함 ( * 오래 걸린다는 기준은 바뀔 수 있어야 함 )
+import datetime
 from typing import List
 
 
 class Function01(ABC):
 
     @abstractmethod
-    def get_the_longest_response_time(self, sorted_and_divide_list_by_datetime: list) -> str:
-        """
-        :param sorted_and_divide_list_by_datetime:
+    def get_long_response_time_lines_by_range_datetime(self, file_paths: List, start_datetime: datetime,
+                                                       end_datetime: datetime, late_time_by_user: str = None) -> List:
+        '''
+        가장 긴 시간의 데이터를 추출
+        :param file_paths:
+        :param start_datetime:
+        :param end_datetime:
+        :param late_time_by_user:
         :return:
-        가장 응답시간이 긴 Request API을 Return
-        """
+        '''
         pass
-
 
 
 class Function02(ABC):
@@ -55,16 +59,20 @@ class Function02(ABC):
         pass
 
     @abstractmethod
-    def collect_all_satisfied_request_api(self, data: str) -> bool:
+    def get_valid_lines_by_range_datetime(self, file_paths: List, start_datetime: datetime,
+                                          end_datetime: datetime, http_method: str, http_code: str) -> List:
         """
-        조건에 해당하는 Request API 만 저장한다.
-        :param data:
+        get_valid_lines_by_range_datetime
+        :param file_paths:
+        :param start_datetime:
+        :param end_datetime:
+        :param http_method:
+        :param http_code:
         :return:
         """
         pass
 
 
-# 시간대별로 HTTP STATUS CODE 가 카운트 되어야 함
 class Function03(ABC):
 
     @abstractmethod
@@ -91,14 +99,21 @@ class Function04(ABC):
         """
         pass
 
+    @abstractmethod
+    def get_valid_resource_by_times(self, files_path_list, start_time, start_time1):
+        pass
+
+
 # 시간대별로 Request 정보에서 Client-Agent 정보를 추출하여 어떤 브라우저(디바이스)에서 접속 했는지 추출함
 class Function05(ABC):
 
     @abstractmethod
-    def extract_client_agent_info_from_request_api(self, line_str):
+    def get_valid_user_agent_by_times(self, files_path_list, start_time, end_time, times):
         """
-        해당하는 유저 에이전트를 추출한다.
-        :param line_str:
+        :param files_path_list:
+        :param start_time:
+        :param end_time:
+        :param times:
         :return:
         """
         pass

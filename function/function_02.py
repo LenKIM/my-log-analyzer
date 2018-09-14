@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
+import datetime
 import re
 from typing import Dict, List
 
-from helpers import constants
+from function.custom_threads import CSVReaderThreadForValidLines
 from function.interface_functions import Function02
+from helpers import constants
 
 
 class Function02Impl(Function02):
@@ -26,7 +28,7 @@ class Function02Impl(Function02):
         return False
 
     def remove_if_not_static_resource(self, input_data) -> bool:
-        regex = re.compile("([*.])\w+")
+        regex = re.compile("([*.])\w\w")
 
         if regex.search(input_data) is True:
             return True
@@ -41,3 +43,19 @@ class Function02Impl(Function02):
             self.result[rest_api] = 1
 
         return self.result
+
+    def get_valid_lines_by_range_datetime(self, file_paths: List, start_datetime: datetime,
+                                          end_datetime: datetime, http_method: str, http_code: str):
+
+        qu: List = []
+        _result: List = []
+        for index, path in enumerate(file_paths):
+            thr = CSVReaderThreadForValidLines(index, path, start_datetime, end_datetime, http_method, http_code)
+            thr.start()
+            qu.append(thr)
+            if index % 3 == 0:
+                while len(qu) <= 0:
+                    th = qu.pop()
+                    _result.append(th.join())
+
+        return _result
