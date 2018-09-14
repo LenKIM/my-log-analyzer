@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
+import csv
 import re
 import shlex
 from typing import List
@@ -11,12 +12,11 @@ class LogParserHelper:
         super().__init__()
 
     @staticmethod
-    def custom_log_parser(input_line) -> List:
+    def raw_log_parser(input_line) -> List:
         qe = qp = None
         row = []
         quote_part = []
         quote_end = ''
-        # for input_line in input_line.replace('\r', '').replace('\n', '').split(' '):
         for input_line in re.sub('[\r\n]', '', input_line).split(' '):
             if quote_part:
                 quote_part.append(input_line)
@@ -37,6 +37,11 @@ class LogParserHelper:
                     row.append(' '.join(quote_part)[1:-1].replace('\\' + quote_end, quote_end))
                     quote_end = quote_part = None
         return row
+
+    @staticmethod
+    def csv_log_parser(line):
+        line = line.split('|')
+        return line
 
     @staticmethod
     def get_the_last_one(string) -> str:

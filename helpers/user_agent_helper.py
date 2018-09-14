@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
-from typing import List
+from typing import List, Dict
 
 from helpers import constants
 
@@ -11,46 +11,62 @@ class UserAgentHelper:
         self.entry_user_agent = {}
         self.user_agent = ''
 
-    def parse_user_agent(self, data: List) -> str:
-        self.user_agent = data[constants.INDEX_OF_USER_AGENT()]
-        return self.user_agent
+    @staticmethod
+    def parse_user_agent(data: List) -> str:
+        user_agent = data[constants.INDEX_OF_USER_AGENT()]
+        return user_agent
 
-    def detect_user_agent(self, user_agent: str) -> str:
+    @staticmethod
+    def detect_user_agent(user_agent: str) -> str:
         line = user_agent
-        if 'trident/7.0' in line or 'msie11' in line:
+        if 'Trident/7.0' in line or 'MSIE11' in line:
             return 'IE 11'
-        elif 'trident/6.0' in line or 'msie 10.0' in line:
+        elif 'PC' in line:
+            return 'PC'
+        elif '-' in line:
+            return '-'
+        elif 'Trident/6.0' in line or 'MSIE 10.0' in line:
             return 'IE 10'
-        elif 'trident/5.0' in line or 'msie 9.0' in line:
+        elif 'Trident/5.0' in line or 'MSIE 9.0' in line:
             return 'IE 9'
-        elif 'trident/4.0' in line or 'msie 8.0' in line:
+        elif 'Trident/4.0' in line or 'MSIE 8.0' in line:
             return 'IE 8'
-        elif 'msie 7.0b' in line or 'msie 7.0' in line:
+        elif 'MSIE 7.0b' in line or 'MSIE 7.0' in line:
             return 'IE 7'
-        elif 'msie 6.1' in line or 'msie 6.1b' in line or 'msie 6.0' in line:
+        elif 'MSIE 6.1' in line or 'MSIE 6.1b' in line or 'MSIE 6.0' in line:
             return 'IE 6'
-        elif 'samsungbrowser' in line:
+        elif 'SamsungBrowser' in line:
             return 'SamsungBrowser'
         elif 'miui' in line:
             return 'XiaomiBrowser'
-        elif 'chrome/' in line:
+        elif 'Chrome/' in line:
             return 'Chorme'
-        elif 'firefox' in line:
+        elif 'Firefox' in line:
             return 'Firefox'
-        elif 'opr/' in line or 'opera' in line:
+        elif 'Opr/' in line or 'opera' in line:
             return 'Opera'
-        elif 'android' in line:
+        elif 'Android' in line:
             return 'Android Browser'
-        elif 'ipad' in line or 'ipod' in line or 'iphone' in line:
+        elif 'Android' in line:
+            return 'Android Browser'
+        elif 'Ipad' in line or 'ipod' in line or 'iphone' in line:
             return 'IOS Browser'
+        elif 'Java' in line:
+            return 'Java'
+        elif 'DaouOffice' in line:
+            return 'DaouOffice'
+        elif 'Safari/' in line:
+            return 'Safari'
         else:
             return 'ETC Browser'
 
-    def collect_user_agent(self, original_entry_data: List):
+    @staticmethod
+    def collect_user_agent(original_entry_data: List, result: Dict):
+        result = {}
         for line_data in original_entry_data:
-            user_agent = self.parse_user_agent(line_data)
-            internet_browser = self.detect_user_agent(user_agent)
-            if internet_browser in self.entry_user_agent:
-                self.entry_user_agent[internet_browser] = self.entry_user_agent[internet_browser] + 1
+            user_agent = UserAgentHelper.parse_user_agent(line_data)
+            internet_browser = UserAgentHelper.detect_user_agent(user_agent)
+            if internet_browser in result:
+                result[internet_browser] = result[internet_browser] + 1
             else:
-                self.entry_user_agent[internet_browser] = 1
+                result[internet_browser] = 1
