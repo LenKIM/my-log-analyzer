@@ -235,3 +235,5 @@ tests/fixtures/temp/big_file_chunk_aae.txt
 tests/fixtures/temp/big_file_chunk_aaf.txt
 tests/fixtures/temp/big_file_chunk_aag.txt
 tests/fixtures/temp/big_file_chunk_aah.txt
+tests/fixtures/test2-1.csv
+tests/fixtures/test2.csv

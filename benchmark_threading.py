@@ -24,7 +24,7 @@ class myThread(threading.Thread):
         f_write = open('/Users/len/log-analyer-assignment/out/test2-1.csv', 'w', encoding='utf8')
         lines = f.readlines()
         for line in tqdm(lines):
-            a = LogParserHelper.custom_log_parser(line)
+            a = LogParserHelper.raw_log_parser(line)
             _all.append(a)
 
         for line in _all:

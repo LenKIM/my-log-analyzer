@@ -10,7 +10,7 @@ from typing import List
 class Function01(ABC):
 
     @abstractmethod
-    def extract_the_longest_response_time_request_api(self, sorted_and_divide_list_by_datetime: list) -> str:
+    def get_the_longest_response_time(self, sorted_and_divide_list_by_datetime: list) -> str:
         """
         :param sorted_and_divide_list_by_datetime:
         :return:
@@ -19,13 +19,14 @@ class Function01(ABC):
         pass
 
 
-# 특정시간의 HTTP STATUS(200, 500, 304 등)와 METHOD(POST, GET, PUT, DELETE) 조건을 만족하는
-# 정적 리소스가 아닌 Request API 를 검색 ( Sorting은 호출된 API 건수에 따라 DESC 하게 출력함 )
+
 class Function02(ABC):
 
     @abstractmethod
     def is_satisfied_http_status(self, data: str, status_code: str) -> bool:
         """
+        특정시간의 HTTP STATUS(200, 500, 304 등)와 METHOD(POST, GET, PUT, DELETE) 조건을 만족하는
+        정적 리소스가 아닌 Request API 를 검색 ( Sorting은 호출된 API 건수에 따라 DESC 하게 출력함 )
         :param data:
         :param status_code:
         :return:
@@ -90,21 +91,11 @@ class Function04(ABC):
         """
         pass
 
-    @abstractmethod
-    def count_many_call_request_request_api(self, file_list: list) -> List:
-        """
-        가장 많이 불린 request_api 별로 카운트 한다.
-        :param file_list:
-        :return:
-        """
-        pass
-
-
 # 시간대별로 Request 정보에서 Client-Agent 정보를 추출하여 어떤 브라우저(디바이스)에서 접속 했는지 추출함
 class Function05(ABC):
 
     @abstractmethod
-    def abstract_client_agent_info_from_request_api(self, line_str):
+    def extract_client_agent_info_from_request_api(self, line_str):
         """
         해당하는 유저 에이전트를 추출한다.
         :param line_str:

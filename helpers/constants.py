@@ -59,24 +59,24 @@ def INDEX_OF_RESPONSE_TIME():
 
 
 def FUNCTION_01():
-    return 1
+    return '1'
 
 
 def FUNCTION_02():
-    return 2
+    return '2'
 
 
 def FUNCTION_03():
-    return 3
+    return '3'
 
 
 def FUNCTION_04():
-    return 4
+    return '4'
 
 
 def FUNCTION_05():
-    return 5
+    return '5'
 
 
 def FUNCTION_06():
-    return 6
+    return '6'

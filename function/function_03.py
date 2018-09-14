@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
-import fileinput
 from typing import Dict, List
 
-from helpers import constants
 from function.interface_functions import Function03
-from helpers.datetime_control_helper import TimeControlHelper
+from helpers import constants
 from helpers.log_parser_helper import LogParserHelper
 
 
@@ -14,37 +12,21 @@ class Function03Impl(Function03):
     def __init__(self) -> None:
         self.result = {}
 
-    def count_http_status_code(self, files_path: List, range_times_list: List) -> Dict:
-        global datetime_zone
-        status_result = {}
-        for line in fileinput.input(files=([file_path for file_path in files_path]),
-                                    openhook=fileinput.hook_encoded("utf-8")):
+    def count_http_status_code(self, files_path: List, range_times_list: List) -> List:
 
-            parsed_log_list = LogParserHelper.custom_log_parser(line)
-            parsed_log_list = TimeControlHelper.convert_str_to_datetime(parsed_log_list)
-            data_datetime = parsed_log_list[constants.INDEX_OF_DATETIME_IN_LOG()]
+        times = []
+        for file_path in files_path:
+            status_result = {}
+            with open(file_path, 'r', encoding='utf8') as lines:
+                for line in lines:
+                    cv_line = LogParserHelper.csv_log_parser(line)
+                    if len(cv_line) > 14:
+                        http_status = cv_line[9]
+                        dt_data = cv_line[constants.INDEX_OF_DATETIME_IN_LOG()]
 
-            http_status = line[constants.INDEX_OF_STATUS_NUMBER()]
-
-            entries_datetime_zone = []
-            for i in range(1, len(range_times_list)):
-                start_datetime = range_times_list[i - 1]
-                end_datetime = range_times_list[i]
-
-                datetime_zone = [start_datetime, end_datetime]
-                entries_datetime_zone.append(datetime_zone)
-
-            for datetime_zone in entries_datetime_zone:
-
-                start_timezone = TimeControlHelper.convert_str_to_datetime_with_single_str(datetime_zone[0])
-                end_timezone = TimeControlHelper.convert_str_to_datetime_with_single_str(datetime_zone[0])
-
-                if start_timezone <= data_datetime <= end_timezone:
-                    temp = status_result[start_timezone] = {}  # 딕셔너리안에 딕셔너리
-
-                    if http_status in temp:
-                        temp[http_status] = temp[http_status] + 1
-                    else:
-                        temp[http_status] = 1
-
-        return status_result
+                        if http_status in status_result:
+                            status_result[http_status] = status_result[http_status] + 1
+                        else:
+                            status_result[http_status] = 1
+                times.append(status_result)
+        print(times)

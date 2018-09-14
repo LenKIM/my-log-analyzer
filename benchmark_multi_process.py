@@ -40,7 +40,7 @@ def read_log_worker(file_path, return_list) -> List:
     line_count = 0
 
     for line in tqdm(lines):
-        a = LogParserHelper.custom_log_parser(line)
+        a = LogParserHelper.raw_log_parser(line)
         line_count = line_count + 1
         return_list.append(a)
     f.close()
@@ -50,7 +50,7 @@ def read_log_worker(file_path, return_list) -> List:
 s = time.time()
 function_01 = Function01Impl()
 list = read_log_files(file_paths)
-print(function_01.extract_the_longest_response_time_request_api(list))
+print(function_01.get_the_longest_response_time(list))
 e = time.time()
 print(e - s)
 # for key in dic.keys():
