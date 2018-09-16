@@ -15,6 +15,8 @@ class FileReaderHelper:
         pass
 
     @staticmethod
-    def file_write(self, file_path, contents):
+    def file_write(file_path, contents):
         with open(file_path, 'w', encoding='utf8') as out_line:
-            out_line.writable(contents)
+            out_line.write(contents)
+
+
