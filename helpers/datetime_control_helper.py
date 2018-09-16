@@ -93,29 +93,61 @@ class TimeControlHelper:
         return list(set(files_path_list))
 
     def choice_files(self, files_path_list, working_datetime):
-        if self.today_at(working_datetime.day, 0) <= working_datetime < self.today_at(working_datetime.day, 4):
+        if self.today_at(working_datetime.day, 0) <= working_datetime < self.today_at(working_datetime.day, 2):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_0_to_4hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_0_to_2hour.csv')
+        elif self.today_at(working_datetime.day, 2) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                        4):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_2_to_4hour.csv')
         elif self.today_at(working_datetime.day, 4) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                        6):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_4_to_6hour.csv')
+
+        elif self.today_at(working_datetime.day, 6) <= working_datetime < self.today_at(working_datetime.day,
                                                                                         8):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_4_to_8hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_6_to_8hour.csv')
+
         elif self.today_at(working_datetime.day, 8) <= working_datetime < self.today_at(working_datetime.day,
-                                                                                        12):
+                                                                                        10):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_8_to_12hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_8_to_10hour.csv')
+
+        elif self.today_at(working_datetime.day, 10) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                         12):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_10_to_12hour.csv')
+
         elif self.today_at(working_datetime.day, 12) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                         14):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_12_to_14hour.csv')
+
+        elif self.today_at(working_datetime.day, 14) <= working_datetime < self.today_at(working_datetime.day,
                                                                                          16):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_12_to_16hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_14_to_16hour.csv')
         elif self.today_at(working_datetime.day, 16) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                         18):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_16_to_18hour.csv')
+
+        elif self.today_at(working_datetime.day, 18) <= working_datetime < self.today_at(working_datetime.day,
                                                                                          20):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_16_to_20hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_18_to_20hour.csv')
+
         elif self.today_at(working_datetime.day, 20) <= working_datetime < self.today_at(working_datetime.day,
-                                                                                         24):
+                                                                                         22):
             files_path_list.append(
-                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_16_to_20hour.csv')
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_20_to_22hour.csv')
+
+        elif self.today_at(working_datetime.day, 22) <= working_datetime < self.today_at(working_datetime.day,
+                                                                                         23):
+            files_path_list.append(
+                '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_22_to_23hour.csv')
 
     @staticmethod
     def set_user_datetime() -> CustomTime:

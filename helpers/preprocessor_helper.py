@@ -143,27 +143,31 @@ class PreprocessorHelper:
             self.make_file_by_hour(_datetime, row)
 
     def make_file_by_hour(self, _datetime: datetime, row: List):
-        if self.today_at(dy=_datetime.day, hr=0) <= _datetime < self.today_at(dy=_datetime.day, hr=4):
-
-            self.make_file_by_time(_datetime.day, 0, 4, row)
-
-        elif self.today_at(dy=_datetime.day, hr=4) <= _datetime < self.today_at(dy=_datetime.day, hr=8):
-
-            self.make_file_by_time(_datetime.day, 4, 8, row)
-
-        elif self.today_at(dy=_datetime.day, hr=8) <= _datetime < self.today_at(dy=_datetime.day, hr=12):
-
-            self.make_file_by_time(_datetime.day, 8, 12, row)
-
-        elif self.today_at(dy=_datetime.day, hr=12) <= _datetime < self.today_at(dy=_datetime.day, hr=16):
-
-            self.make_file_by_time(_datetime.day, 12, 16, row)
-
-        elif self.today_at(dy=_datetime.day, hr=16) <= _datetime < self.today_at(dy=_datetime.day, hr=20):
-
-            self.make_file_by_time(_datetime.day, 16, 20, row)
-
-        elif self.today_at(dy=_datetime.day, hr=20) <= _datetime < self.today_at(dy=_datetime.day, hr=23):
+        if self.today_at(dy=_datetime.day, hr=0) <= _datetime < self.today_at(dy=_datetime.day, hr=2):
+            self.make_file_by_time(_datetime.day, 0, 2, row)
+        elif self.today_at(dy=_datetime.day, hr=2) <= _datetime < self.today_at(dy=_datetime.day, hr=4):
+            self.make_file_by_time(_datetime.day, 2, 4, row)
+        elif self.today_at(dy=_datetime.day, hr=4) <= _datetime < self.today_at(dy=_datetime.day, hr=6):
+            self.make_file_by_time(_datetime.day, 4, 6, row)
+        elif self.today_at(dy=_datetime.day, hr=4) <= _datetime < self.today_at(dy=_datetime.day, hr=6):
+            self.make_file_by_time(_datetime.day, 6, 8, row)
+        elif self.today_at(dy=_datetime.day, hr=6) <= _datetime < self.today_at(dy=_datetime.day, hr=8):
+            self.make_file_by_time(_datetime.day, 4, 6, row)
+        elif self.today_at(dy=_datetime.day, hr=8) <= _datetime < self.today_at(dy=_datetime.day, hr=10):
+            self.make_file_by_time(_datetime.day, 8, 10, row)
+        elif self.today_at(dy=_datetime.day, hr=10) <= _datetime < self.today_at(dy=_datetime.day, hr=12):
+            self.make_file_by_time(_datetime.day, 10, 12, row)
+        elif self.today_at(dy=_datetime.day, hr=12) <= _datetime < self.today_at(dy=_datetime.day, hr=14):
+            self.make_file_by_time(_datetime.day, 12, 14, row)
+        elif self.today_at(dy=_datetime.day, hr=14) <= _datetime < self.today_at(dy=_datetime.day, hr=16):
+            self.make_file_by_time(_datetime.day, 14, 16, row)
+        elif self.today_at(dy=_datetime.day, hr=16) <= _datetime < self.today_at(dy=_datetime.day, hr=18):
+            self.make_file_by_time(_datetime.day, 16, 18, row)
+        elif self.today_at(dy=_datetime.day, hr=18) <= _datetime < self.today_at(dy=_datetime.day, hr=20):
+            self.make_file_by_time(_datetime.day, 18, 20, row)
+        elif self.today_at(dy=_datetime.day, hr=20) <= _datetime < self.today_at(dy=_datetime.day, hr=22):
+            self.make_file_by_time(_datetime.day, 20, 22, row)
+        elif self.today_at(dy=_datetime.day, hr=22) <= _datetime < self.today_at(dy=_datetime.day, hr=23):
             self.make_file_by_time(_datetime.day, 20, 24, row)
 
     def make_file_by_time(self, day, s_time, e_time, row):
