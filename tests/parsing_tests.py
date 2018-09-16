@@ -2,6 +2,7 @@ from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 import datetime
 import glob
 import re
+import shlex
 import time
 from typing import List
 import unittest
@@ -21,7 +22,17 @@ def multithreading(func, args, workers):
 def multiprocessing(func, args, workers):
     with ProcessPoolExecutor(max_workers=workers) as ex:
         res = ex.map(func, args)
-    return list(res)
+    # return list(res)
+
+
+def get_the_request_api_and_last_one_and_datetime(string) -> List:
+    list = shlex.split(string)
+    request_api = list[7]
+    datetime = list[4]
+    datetime = datetime[1:]
+    response_time = list[14]
+    element_lists = [request_api, datetime, response_time]
+    return element_lists
 
 
 def custom_log_parser(string) -> List:
@@ -87,6 +98,32 @@ class ParsingTest(unittest.TestCase):
         print(time.time() - start_time)
         self.assertEqual([], [])
 
+    # Normal
+    def test_custom_parser(self):
+        file_paths = glob.glob("/Users/len/log-analyer-assignment/logdata/20180824/*.txt", recursive=False)
+        start_time = time.time()
+        for file_path in file_paths:
+            with open(str(file_path), 'r', encoding='utf8') as infile:
+                lines = infile.readlines()
+                for row_list in tqdm(lines):
+                    a = custom_log_parser(row_list)
+        print(time.time() - start_time)
+
+        self.assertEqual([], [])
+
+    def test_shlex_parser(self):
+        file_paths = glob.glob("/Users/len/log-analyer-assignment/logdata/20180824/*.txt", recursive=False)
+        start_time = time.time()
+        for file_path in file_paths:
+            with open(str(file_path), 'r', encoding='utf8') as infile:
+                lines = infile.readlines()
+                for row_list in tqdm(lines):
+                    a = get_the_request_api_and_last_one_and_datetime(row_list)
+
+        print(time.time() - start_time)
+
+        self.assertEqual([], [])
+
     def file_read(self, file_paths):
         for path in file_paths:
             f2 = open(path, 'r', encoding='utf8')
@@ -97,7 +134,7 @@ class ParsingTest(unittest.TestCase):
                 user_datetime = datetime.datetime.strptime(row_list[INDEX_OF_DATETIME_IN_LOG()],
                                                            '%d/%b/%Y:%H:%M:%S %z')
 
-                self.make_files_valid_datetime(user_datetime, row_list)
+                # self.make_files_valid_datetime(user_datetime, row_list)
 
     def make_files_valid_datetime(self, _datetime: datetime, row: List):
         if _datetime.day is 24:
