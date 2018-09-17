@@ -14,8 +14,6 @@ https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/python.html
 
 ### 차이
 
-
-
 |      | java                      | python3                                                      |
 | ---- | ------------------------- | ------------------------------------------------------------ |
 | Type | compiled language         | an interpreted language                                      |
