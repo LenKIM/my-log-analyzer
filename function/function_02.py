@@ -53,9 +53,9 @@ class Function02Impl(Function02):
             thr = CSVReaderThreadForValidLines(index, path, start_datetime, end_datetime, http_method, http_code)
             thr.start()
             qu.append(thr)
-            if index % 3 == 0:
-                while len(qu) <= 0:
-                    th = qu.pop()
-                    _result.append(th.join())
+
+        while len(qu) <= 0:
+            th = qu.pop()
+            _result.append(th.join())
 
         return _result

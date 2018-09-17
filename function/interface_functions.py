@@ -83,7 +83,6 @@ class Function03(ABC):
         :param data:
         :return:
         """
-
         pass
 
 
@@ -101,15 +100,23 @@ class Function04(ABC):
 
     @abstractmethod
     def get_valid_resource_by_times(self, files_path_list, start_time, start_time1):
+        """
+        정적리소스가 아닌 부분 제거.
+        :param files_path_list:
+        :param start_time:
+        :param start_time1:
+        :return:
+        """
         pass
 
 
-# 시간대별로 Request 정보에서 Client-Agent 정보를 추출하여 어떤 브라우저(디바이스)에서 접속 했는지 추출함
 class Function05(ABC):
 
     @abstractmethod
     def get_valid_user_agent_by_times(self, files_path_list, start_time, end_time, times):
         """
+        시간대별로 Request 정보에서 Client-Agent 정보를 추출하여
+        어떤 브라우저(디바이스)에서 접속 했는지 추출함
         :param files_path_list:
         :param start_time:
         :param end_time:

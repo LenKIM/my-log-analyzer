@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
-import inquirer
-
-from do.custom_time import CustomTime
 
 
 class CommandLineHelper:

@@ -50,7 +50,6 @@ def read_log_worker(file_path, return_list) -> List:
 s = time.time()
 function_01 = Function01Impl()
 list = read_log_files(file_paths)
-print(function_01.get_the_longest_response_time(list))
 e = time.time()
 print(e - s)
 # for key in dic.keys():

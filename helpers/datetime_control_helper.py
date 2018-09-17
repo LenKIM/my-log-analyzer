@@ -96,10 +96,12 @@ class TimeControlHelper:
         if self.today_at(working_datetime.day, 0) <= working_datetime < self.today_at(working_datetime.day, 2):
             files_path_list.append(
                 '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_0_to_2hour.csv')
+
         elif self.today_at(working_datetime.day, 2) <= working_datetime < self.today_at(working_datetime.day,
                                                                                         4):
             files_path_list.append(
                 '/Users/len/log-analyer-assignment/out/' + str(working_datetime.day) + '/day_2_to_4hour.csv')
+
         elif self.today_at(working_datetime.day, 4) <= working_datetime < self.today_at(working_datetime.day,
                                                                                         6):
             files_path_list.append(
