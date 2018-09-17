@@ -25,6 +25,7 @@ class CSVReaderThreadForLongResponseTime(threading.Thread):
 
     def run(self):
         lines = csv.reader(open(file=self.file_path, newline='', encoding='utf-8'), delimiter='|')
+
         MIN = 0.0
         for line in tqdm(lines):
             input_date = datetime.datetime.strptime(line[constants.INDEX_OF_DATETIME_IN_LOG()], '%d/%b/%Y:%H:%M:%S %z')
@@ -63,10 +64,12 @@ class CSVReaderThreadForValidLines(threading.Thread):
         function_02 = Function02Impl()
         result = {}
         for line in tqdm(lines):
+            rest_api = line[constants.INDEX_OF_REST_API()]
             input_date = datetime.datetime.strptime(line[constants.INDEX_OF_DATETIME_IN_LOG()], '%d/%b/%Y:%H:%M:%S %z')
             if self.start_time <= input_date <= self.end_time:
                 if function_02.is_satisfied_http_method(line, self.method) is True and \
-                        function_02.is_satisfied_http_status(line, self.code):
+                        function_02.is_satisfied_http_status(line, self.code) is True and \
+                        function_02.remove_if_not_static_resource(line):
                     result = function_02.collect_all_satisfied_request_api(line)
 
                 self._result = result

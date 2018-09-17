@@ -3,7 +3,6 @@
 import re
 from typing import List
 
-from function.custom_threads import ReaderThreadForRemovedResourceLines
 from function.interface_functions import Function04
 
 
@@ -25,11 +24,12 @@ class Function04Impl(Function04):
         qu: List = []
         _result: List = []
         for index, path in enumerate(files_path_list):
+            from function.custom_threads import ReaderThreadForRemovedResourceLines
             thr = ReaderThreadForRemovedResourceLines(index, path, start_time, start_time1)
             thr.start()
             qu.append(thr)
-            if index % 3 == 0:
-                for th in qu:
-                    _result.append(th.join())
+
+        for th in qu:
+            _result.append(th.join())
 
         return _result

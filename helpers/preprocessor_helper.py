@@ -6,6 +6,7 @@ import re
 from typing import List
 
 import pytz
+from tqdm import tqdm
 
 
 def INDEX_OF_INTERNET_ID():
@@ -103,11 +104,11 @@ class PreprocessorHelper:
 
     def file_classification_by_datetime(self):
         a_total = []
-        a_24 = glob.glob('/Users/len/log-analyer-assignment/logdata/20180824/*.txt')
-        a_27 = glob.glob('/Users/len/log-analyer-assignment/logdata/20180827/*.txt')
+        # a_24 = glob.glob('/Users/len/log-analyer-assignment/logdata/20180824/*.txt')
+        # a_27 = glob.glob('/Users/len/log-analyer-assignment/logdata/20180827/*.txt')
         a_28 = glob.glob('/Users/len/log-analyer-assignment/logdata/20180828/*.txt')
-        a_total.append(a_24)
-        a_total.append(a_27)
+        # a_total.append(a_24)
+        # a_total.append(a_27)
         a_total.append(a_28)
 
         for single_day in a_total:
@@ -118,21 +119,19 @@ class PreprocessorHelper:
 
     def abc(self, file_list):
         file_list = str(file_list)
-        f = open(file_list, 'r', encoding='utf8')
-        lines = f.readlines()
-        for row in lines:
+        with open(file_list, 'r', encoding='utf8') as infile:
+            lines = infile.readlines()
+            for row in tqdm(lines):
 
-            row_list = self.custom_log_parser(row)
+                row_list = self.custom_log_parser(row)
 
-            if len(row_list) > 14:
-                print(row_list)
-                continue
+                if len(row_list) > 14:
+                    print(row_list)
+                    continue
 
-            user_datetime = datetime.datetime.strptime(row_list[INDEX_OF_DATETIME_IN_LOG()],
-                                                       '%d/%b/%Y:%H:%M:%S %z')
-            self.make_files_valid_datetime(user_datetime, row_list)
-
-        f.close()
+                user_datetime = datetime.datetime.strptime(row_list[INDEX_OF_DATETIME_IN_LOG()],
+                                                           '%d/%b/%Y:%H:%M:%S %z')
+                self.make_files_valid_datetime(user_datetime, row_list)
 
     def make_files_valid_datetime(self, _datetime: datetime, row: List):
         if _datetime.day is 24:

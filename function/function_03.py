@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/env python3
-from typing import List, Dict
+from typing import Dict, List
 
 from function.interface_functions import Function03
 from helpers import constants

@@ -9,7 +9,7 @@ from function.function_03 import Function03Impl
 from function.function_04 import Function04Impl
 from function.function_05 import Function05Impl
 from helpers.command_line_helper import CommandLineHelper
-from helpers.constants import FUNCTION_01, FUNCTION_02, FUNCTION_03, FUNCTION_04, FUNCTION_05, FUNCTION_06
+from helpers.constants import FUNCTION_06, FUNCTION_01, FUNCTION_02, FUNCTION_03, FUNCTION_04, FUNCTION_05
 from helpers.datetime_control_helper import TimeControlHelper
 from helpers.file_helpers import FileReaderHelper
 
@@ -37,19 +37,20 @@ if __name__ == '__main__':
                                                                                          start_day, end_day,
                                                                                          late_time_by_user)
 
-        if late_time_by_user is not None:
+        if late_time_by_user is not '':
             for min_response_time, result_log_line in long_response_times:
                 print(min_response_time + ' : ', end='')
                 print(result_log_line)
         else:
             MIN = 0.0
             result_log_line = ''
-            for row in long_response_times:
-                response_time = row[0]
-                response_time = float(response_time)
-                if response_time > MIN:
-                    MIN = response_time
-                    result_log_line = row[1]
+            for row_of_joined_list in long_response_times:
+                for result_low in row_of_joined_list:
+                    response_time = result_low[0]
+                    response_time = float(response_time)
+                    if response_time > MIN:
+                        MIN = response_time
+                        result_log_line = result_low[1]
 
             print(result_log_line)
 
@@ -138,10 +139,10 @@ if __name__ == '__main__':
         range_times_list = user_time.range_times
 
         files_path_list = time_control_helper.get_file_lists_the_date(start_day, end_day)
-        user_agent_result = file_reader_helper.get_valid_user_agent_by_times(files_path_list,
-                                                                             user_time.start_time,
-                                                                             user_time.start_time,
-                                                                             range_times_list)
+        user_agent_result = function_05.get_valid_user_agent_by_times(files_path_list,
+                                                                      user_time.start_time,
+                                                                      user_time.start_time,
+                                                                      range_times_list)
         sum_of_result = Counter({})
         for one_result in user_agent_result:
             for browser, count in one_result.items():

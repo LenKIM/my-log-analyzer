@@ -4,7 +4,6 @@ import datetime
 import re
 from typing import Dict, List
 
-from function.custom_threads import CSVReaderThreadForValidLines
 from function.interface_functions import Function02
 from helpers import constants
 
@@ -50,12 +49,12 @@ class Function02Impl(Function02):
         qu: List = []
         _result: List = []
         for index, path in enumerate(file_paths):
+            from function.custom_threads import CSVReaderThreadForValidLines
             thr = CSVReaderThreadForValidLines(index, path, start_datetime, end_datetime, http_method, http_code)
             thr.start()
             qu.append(thr)
 
-        while len(qu) <= 0:
-            th = qu.pop()
+        for th in qu:
             _result.append(th.join())
 
         return _result
